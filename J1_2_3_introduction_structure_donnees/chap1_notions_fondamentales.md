@@ -780,6 +780,13 @@ const log = {
 setTimeout(log.save, 500);
 ```
 
+Pour corrigé l'appel de setTimeout pour que la fonction save de l'objet log, il faut utilisez la syntaxe suivante, appeler la fonction depuis l'objet log
+
+```js
+setTimeout(() => log.save(), 500);
+
+```
+
 ### L'objet arguments et paramètres d'une fonction <a class="anchor" id="section76"></a>
 
 Vous n'êtes pas obligé de renseigner le nombre d'argument(s) d'une fonction en JS. La fonction possède en interne une propriété **arguments** qui récupère les paramètres de la fonction, attention arguments n'est pas un tableau :
