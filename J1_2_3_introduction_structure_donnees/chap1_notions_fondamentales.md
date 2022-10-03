@@ -607,16 +607,20 @@ L'objet sur lequel vous **appelez** la fonction détermine le this :
 ```js
 'use strict';
 
+let name = "foo";
+
 const o1 = {
+    name : "o1",
     f1 : function(){
 
-      return this;
+      return this?.name;
     }
 }
 
 console.log(o1.f1()) ; // this de o1
 
 const o2 = {
+    name : "o2",
     f2 : o1.f1
 }
 
@@ -654,10 +658,14 @@ console.log(o2.f2()) ; // this de o2
 
 // plus de context c'est pas un objet du coup this il n'est pas défini
 const o3 = o1.f1;
-console.log(o3()) ; // this de o2
+console.log(o3()) ; 
 ```
 
-Si vous retitez le mode strict pour o3 qui n'est pas un objet, en copiant ce script dans la console. Expliquez pourquoi vous n'avez plus d'erreur ?
+Si vous retitez le mode strict de JS pour o3, qui n'est pas un objet, en copiant ce script dans la console, expliquez pourquoi vous n'avez plus d'erreur ?
+
+*Réponse : l'appel de la fonction f1 sur l'objet o3 est appelée dans le contexte du script global dans lequel le seul objet défini est le this du Window. En mode sctrict par contre cet effet de bord est bloqué (dans ce cas this?.name sera undefined).*
+
+Rappel : this?.name permet de ne pas lever une erreur si l'objet this n'est pas défini.
 
 De même, faites attention dans les fonctions de callback. Dans l'exemple qui suit setTimeout fera appel à la fonction sans reprendre le context de l'objet lui-même, this sera, en mode strict, undefined :
 
@@ -667,7 +675,7 @@ De même, faites attention dans les fonctions de callback. Dans l'exemple qui su
 setTimeout(o1.f1, 1000); // ici setTimeout appel la fonction f1.
 ```
 
-Pour corriger ce problème il faut écrire :
+Pour corriger ce problème il faut écrire, là c'est vous qui l'appeler 
 
 ```js
 setTimeout(() => o1.f1() , 1000); // ici setTimeout appel la fonction f1.
@@ -695,6 +703,15 @@ setTimeout( function (){
 })
 ```
 
+Une expression de fonction :
+
+```js
+const myFunc = function(){
+}
+
+myFunc();
+```
+
 #### 07 Exercice function & expression <a class="anchor" id="section751"></a>
 
 *Sans exécuter le code.* 
@@ -712,7 +729,7 @@ const myFunc = function(){
 
 Les fonctions déclarées sont définies dès le début du script ou de la fonction qui la contient.
 
-Les expressions de fonction sont définies après leur évaluation.
+**Les expressions de fonction sont définies après leur évaluation.**
 
 #### 08 Exercice déclaration d'une fonction <a class="anchor" id="section752"></a>
 
