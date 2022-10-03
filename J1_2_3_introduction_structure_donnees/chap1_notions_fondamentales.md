@@ -720,12 +720,18 @@ Nommez les types de fonction ci-dessous :
 
 ```js
 const myFunc = function(){
-
+ // bar est définie ici 
+  bar();
+  let a = 6 ;
   function bar(){
     // ...
   }
 }
 ```
+
+**myFunction** : expression de fonction
+
+**bar** : une fonction déclarée
 
 Les fonctions déclarées sont définies dès le début du script ou de la fonction qui la contient.
 
@@ -745,6 +751,8 @@ function bar(){
 }
 ```
 
+Oui le code est valide car les fonctions nommés sont défnis en premier (dans leur context) dans le script
+
 2. Le code suivant est-il valide ?
 
 ```js
@@ -754,6 +762,8 @@ const myFunc = function(){
     console.log("Expression");
 }
 ```
+
+Non car, une expression de fonction est définie lors de sa définition (assignation)
 
 ### 09 Exercice de synthèse corrigé un effet de bord <a class="anchor" id="section79"></a>
 
