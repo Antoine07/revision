@@ -627,6 +627,38 @@ const o3 = o1.f1;
 console.log(o3()) ; // undefined car on n'appelle la fonction f1 explicitement
 ```
 
+### Exercice supp 02 contexte
+
+```js
+'use strict';
+
+// contexte 
+const o1 = {
+    name : "o1",
+    f1 : function(){
+
+      return this.name;
+    }
+}
+
+// f1 est appelée dans le contexte de l'objet o1 donc c'est le this de o1
+console.log(o1.f1()) ; // this de o1
+
+const o2 = {
+    name : "o2",
+    f2 : o1.f1 // on définit la fonction f2 comme étant la fonction f1 de o1
+}
+
+// f2 est appelée dans le contexte de l'objet o2 donc c'est le this de o2
+console.log(o2.f2()) ; // this de o2
+
+// plus de context c'est pas un objet du coup this il n'est pas défini
+const o3 = o1.f1;
+console.log(o3()) ; // this de o2
+```
+
+Si vous retitez le mode strict pour o3 qui n'est pas un objet, en copiant ce script dans la console. Expliquez pourquoi vous n'avez plus d'erreur ?
+
 De même, faites attention dans les fonctions de callback. Dans l'exemple qui suit setTimeout fera appel à la fonction sans reprendre le context de l'objet lui-même, this sera, en mode strict, undefined :
 
 ```js
