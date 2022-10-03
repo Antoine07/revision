@@ -544,6 +544,26 @@ let numbers = [1, 2, 3];
 sum(...numbers); // sum(1, 2, 3) unpacking
 ```
 
+### Exericice supp 01
+
+ Démontrer à partir de l'exemple ci-dessus que le spread operator ne fait pas de deep copy
+ 
+
+```js
+const students = {
+    name : "Alan",
+    email : "alan@alan.fr",
+    address : [
+        "Paris", "London"
+    ]
+}
+
+// le spread operator fait une copy peu profonde
+const st = { ... students }
+
+```
+
+
 #### 06 Exercice fonction ttc spread operator <a class="anchor" id="section721"></a>
 
 Ecrivez une fonction **sumTTC** qui prend 3 nombres arbitraires de prix HT et retourne la somme de ces prix TTC. La TVA est  un paramètre facultatif (20%).
