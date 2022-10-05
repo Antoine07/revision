@@ -11,6 +11,7 @@ positions.map(point => {
   distances.push({point, d : distance(point, A)})
 });
 
+// par ordre décroissant 
 distances.sort((a, b) => b.d - a.d );
 // max des distances
 console.log(distances);
