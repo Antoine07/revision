@@ -7,6 +7,9 @@ Vous pouvez affecter par décomposition des variables pré-définies comme suit 
 ```js
 let a, b;
 [a, b] = [10, 20];
+
+// permutation facile
+[b, a] = [10, 20];
 ```
 
 Si vous ne souhaitez affecter que quelques variables et récupérer le reste de l'assignation dans un tableau, vous pouvez utiliser le spread operator :
@@ -126,7 +129,7 @@ const students = [
     name: "Alan",
     family: {
       mother: "Yvette",
-      father: "Paul",
+      father: "Michel",
       sister: "Sylvie",
     },
     age: 35,
@@ -135,7 +138,7 @@ const students = [
     name: "Bernard",
     family: {
       mother: "Martine",
-      father: "Cécile",
+      father: "Caroline",
       sister: "Sophie",
     },
     age: 55,
@@ -197,6 +200,9 @@ Soient les données suivantes. Créez un tableau strNumbers et pushez-y chacune 
 ```js
 const str1 = ["one", "two"];
 const str2 = ["three", "four"];
+
+// réponse
+const strNumbers = { ...str1, ...str2 };
 ```
 
 ### Nom de propriété calculé et décomposition
@@ -246,7 +252,7 @@ const students = [
     name: "Alan",
     family: {
       mother: "Yvette",
-      father: "Paul",
+      father: "Michel",
       sister: "Sylvie",
     },
     age: 35,
@@ -255,7 +261,7 @@ const students = [
     name: "Bernard",
     family: {
       mother: "Martine",
-      father: "Cécile",
+      father: "Caroline",
       sister: "Sophie",
     },
     age: 55,
