@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
 });
 ```
 
-2. Affichez en premier leur nombre et modifiez la fonction addDragons.
+2. Affichez en premier leur nombre et modifiez la fonction addDragons afin de pouvoir ajouter un dragon.
 
 - Babel
 
